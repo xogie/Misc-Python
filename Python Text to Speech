@@ -1,0 +1,20 @@
+from TTS.api import TTS
+
+# Create an instance of the TTS class
+tts_instance = TTS()
+
+# Now you can call list_models on the instance
+model_name = tts_instance.list_models()[0]
+
+# Init TTS with the chosen model
+tts = TTS(model_name)
+
+# Text to be spoken
+text_to_say = "I removed the redundant lines from the code snippet. This code should instantiate the TTS class"
+
+# Text to speech with a numpy output
+wav = tts.tts(text_to_say, speaker=tts.speakers[0], language=tts.languages[0])
+
+# Text to speech to a file
+tts.tts_to_file(text=text_to_say, speaker=tts.speakers[0], language=tts.languages[0], file_path="output.wav")
+
