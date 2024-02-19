@@ -1,0 +1,24 @@
+import turtle
+import os
+
+# Set up the turtle
+turtle.bgcolor("white")
+squary = turtle.Turtle()
+squary.speed(50000)
+
+# Define the colors to cycle through
+colors = ["red", "green", "blue", "yellow", "purple", "orange"]
+
+# Draw the spiraling square pattern
+for i in range(500):
+    squary.pencolor(colors[i % len(colors)])  # Cycle through the colors
+    squary.forward(i)
+    squary.left(91)
+
+# Save the drawing as a PostScript file
+turtle.getcanvas().postscript(file="spiraling_square.ps")
+turtle.done()
+
+# Use ImageMagick to convert the PostScript file to a PNG file
+os.system("magick convert spiraling_square.ps spiraling_square.png")
+
