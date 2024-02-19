@@ -10,7 +10,7 @@ squary.speed(50000)
 colors = ["red", "green", "blue", "yellow", "purple", "orange"]
 
 # Draw the spiraling square pattern
-for i in range(500):
+for i in range(2000):
     squary.pencolor(colors[i % len(colors)])  # Cycle through the colors
     squary.forward(i)
     squary.left(91)
@@ -19,6 +19,6 @@ for i in range(500):
 turtle.getcanvas().postscript(file="spiraling_square.ps")
 turtle.done()
 
-# Use ImageMagick to convert the PostScript file to a PNG file
+# Convert the PostScript file to a PNG file using ImageMagick
 os.system("magick convert spiraling_square.ps spiraling_square.png")
 
